@@ -1,0 +1,128 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="utf-8">
+ <title>My first view</title>
+ <link rel="stylesheet" href="stylesheets/style.css">
+</head>
+<body>
+ <h1>Ironhackers Be Like</h1>
+  <h2>My name is {{name}}</h2>
+  <p>Welcome to the {{ bootcamp }} </p>
+
+
+  <hr>
+
+  <h3>#if</h3>
+
+  {{#if message}}
+    <h2>{{message}}</h2>
+  {{/if}}
+
+
+  <hr>
+
+  <h3>#if else</h3>
+
+  {{#if address}}
+    <h2>{{address}}</h2>
+  {{else}}
+    <h2>No address!</h2>
+  {{/if}}
+
+
+  <hr>
+
+  <h3>#unless - runs if the value is falsy</h3>
+
+  {{#unless address}}
+    <h3>Warning: We can't find the address!</h3>
+  {{/unless}}
+
+
+
+  <hr>
+
+  <h3>#each</h3>
+
+  <ul>
+  {{#each cities}}
+      <li>{{ this }}</li>
+  {{/each}}
+  </ul>
+
+
+
+  <hr>
+
+  <h3>#each #else - fallback option</h3>
+
+  <ul>
+  {{#each countries}}
+     <li> {{ this }} </li>
+  {{else}}
+    <p>No countries found!</p>
+  {{/each}}
+  </ul>
+
+
+
+
+  <hr>
+  <h3>@index</h3>
+
+  <ul>
+    {{#each countriesFromOne}}
+      <li> {{@index}} - {{this}} </li>
+    {{/each}}
+
+  </ul>
+
+
+  <hr>
+
+  <h3>@key</h3>
+
+  <ul>
+    {{#each info}}
+      <li>  {{@key}} : {{ this }} </li>
+    {{/each}}
+  </ul>
+
+
+
+  <hr>
+
+  <h3>@first - @last</h3>
+
+  <ul>
+    {{#each cities}}
+
+      {{#if @first}}
+        First one: {{ this }}
+      {{else if @last}}
+        Last one: {{ this }}
+      {{else}}
+        <li> {{this}} </li>
+
+      {{/if}}
+
+    {{/each}}
+  </ul>
+
+
+  <hr>
+  <h3>#with</h3>
+
+
+  {{#with info}}
+
+    <h1>Hello {{name}}!</h1>
+    <p>Welcome to {{campus}} .</p>
+
+  {{/with}}
+
+
+ <img src="https://media.giphy.com/media/l0MYEqEzwMWFCg8rm/giphy.gif">
+</body>
+</html>
